@@ -31,7 +31,7 @@ add_action( 'add_meta_boxes', 'lccc_athletics_player_profile_add_meta_box' );
 
 
 function lccc_athletics_player_profile_html( $post) {
-	wp_nonce_field( '_lccc_athletics_player_profile_nonce', 'lccc_athletics_player_profile_nonce' ); 
+	wp_nonce_field( '_lccc_athletics_player_profile_nonce', 'lccc_athletics_player_profile_nonce' );
 ?>
 
 <script type="text/javascript">
@@ -41,14 +41,14 @@ function lccc_athletics_player_profile_html( $post) {
 		var coedcheckbox = jQuery("#coed_trigger");
   var hidden = jQuery("#hidden_fields");
 		var hiddencoedfield = jQuery("#coed-hidden_fields");
-  
+
   // Hide the fields.
-  // Use JS to do this in case the user doesn't have JS 
+  // Use JS to do this in case the user doesn't have JS
   // enabled.
-		
+
 		//hidden.hide();
 
-  // Setup an event listener for when the state of the 
+  // Setup an event listener for when the state of the
   // checkbox changes.
   checkbox.change(function() {
     // Check to see if the checkbox is checked.
@@ -57,15 +57,15 @@ function lccc_athletics_player_profile_html( $post) {
     if (checkbox.is(':checked')) {
       // Show the hidden fields.
       hidden.toggle();
-     
+
     } else {
       // Make sure that the hidden fields are indeed
       // hidden.
       hidden.hide();
-      
-      // You may also want to clear the value of the 
-      // hidden fields here. Just in case somebody 
-      // shows the fields, enters data to them and then 
+
+      // You may also want to clear the value of the
+      // hidden fields here. Just in case somebody
+      // shows the fields, enters data to them and then
       // unticks the checkbox.
       //
       // This would do the job:
@@ -80,15 +80,15 @@ function lccc_athletics_player_profile_html( $post) {
     if (coedcheckbox.is(':checked')) {
       // Show the hidden fields.
       hiddencoedfield.toggle();
-     
+
     } else {
       // Make sure that the hidden fields are indeed
       // hidden.
       hiddencoedfield.hide();
-      
-      // You may also want to clear the value of the 
-      // hidden fields here. Just in case somebody 
-      // shows the fields, enters data to them and then 
+
+      // You may also want to clear the value of the
+      // hidden fields here. Just in case somebody
+      // shows the fields, enters data to them and then
       // unticks the checkbox.
       //
       // This would do the job:
@@ -106,14 +106,14 @@ function lccc_athletics_player_profile_html( $post) {
 });
 	//this toggles the visibility of our parent permission fields depending on the current selected value of the underAge field
 function toggleFields() {
-	
+
  	switch (jQuery("#lccc_athletics_player_profile_sport").val()){
 			case 'Baseball':
 					hideAll();
 					jQuery("#baseball").show();
 					jQuery("#secondary-postion-trigger").show();
 			break;
-				
+
 			case 'Basketball':
 					hideAll();
 					jQuery("#basketball").show();
@@ -123,31 +123,31 @@ function toggleFields() {
 			case 'Cross Country':
 					hideAll();
 					jQuery("#secondary-postion-trigger").hide();
-			break;	
-				
+			break;
+
 		 case 'Fastpitch Softball':
 					hideAll();
 					jQuery("#fastpitch-softball").show();
 					jQuery("#secondary-postion-trigger").show();
-			break;		
+			break;
 
 			case 'Soccer':
 					hideAll();
 					jQuery("#soccer").show();
 					jQuery("#secondary-postion-trigger").show();
-		 break;	
-				
+		 break;
+
 			case 'Volleyball':
 					hideAll();
 					jQuery("#volleyball").show();
 					jQuery("#secondary-postion-trigger").show();
-				break;	
-				
+				break;
+
 			default:
 				hideAll();
 				jQuery("#secondary-postion-trigger").hide();
-		}  
-		
+		}
+
 }
 				function hideAll(){
 							jQuery("#basketball").hide();
@@ -163,11 +163,11 @@ function toggleFields() {
 <p>
 		<label for="lccc_athletics_player_profile_jersey_number"><?php _e( 'Jersey Number', 'lccc_athletics_player_profile' ); ?></label><br>
 		<input type="text" name="lccc_athletics_player_profile_jersey_number" id="lccc_athletics_player_profile_jersey_number" value="<?php echo lccc_athletics_player_profile_get_meta( 'lccc_athletics_player_profile_jersey_number' ); ?>">
-	</p>	
+	</p>
 <p>
 		<label for="lccc_athletics_player_profile_height"><?php _e( 'Height', 'lccc_athletics_player_profile' ); ?></label><br>
 		<input type="text" name="lccc_athletics_player_profile_height" id="lccc_athletics_player_profile_height" value="<?php echo lccc_athletics_player_profile_get_meta( 'lccc_athletics_player_profile_height' ); ?>">
-	</p>	
+	</p>
 <p>
 		<label for="lccc_athletics_player_profile_sport"><?php _e( 'Sport', 'lccc_athletics_player_profile' ); ?></label><br>
 		<select name="lccc_athletics_player_profile_sport" id="lccc_athletics_player_profile_sport">
@@ -187,9 +187,9 @@ function toggleFields() {
 			<?php
 				$baseballpositions = array(' ','UTILITY', 'INF','OF','P','C','1B','2B','3B','SS');
 				foreach ($baseballpositions as $baseballposition){
-					
+
 					$selectedbaseball = esc_attr( lccc_athletics_player_profile_get_meta ('lccc_athletics_player_profile_position_baseball') );
-					
+
 					echo '<option value="' . $baseballposition . '" id="' . $baseballposition . '"', $selectedbaseball == $baseballposition ? ' selected="selected"' : '', '>', $baseballposition, '</option>';
 				}
 	?>
@@ -201,9 +201,9 @@ function toggleFields() {
 			<?php
 				$basketballpositions = array(' ','Guard','Forward','Center');
 				foreach ($basketballpositions as $basketballposition){
-					
+
 					$selectedbasketball = esc_attr( lccc_athletics_player_profile_get_meta ('lccc_athletics_player_profile_position_basketball') );
-					
+
 					echo '<option value="' . $basketballposition . '" id="' . $basketballposition . '"', $selectedbasketball == $basketballposition ? ' selected="selected"' : '', '>', $basketballposition, '</option>';
 				}
 	?>
@@ -213,11 +213,11 @@ function toggleFields() {
 		<label for="lccc_athletics_player_profile_position_softball"><?php _e( 'Position', 'lccc_athletics_player_profile' ); ?></label><br>
 		<select name="lccc_athletics_player_profile_position_softball" id="lccc_athletics_player_profile_position_softball">
 			<?php
-				$softballpositions = array(' ','P','C','1B','2B','3B','SS','OF');
+				$softballpositions = array(' ','P','C','1B','2B','3B','SS','OF', 'IF', 'UTILITY');
 				foreach ($softballpositions as $softballposition){
-					
+
 					$selectedsoftball = esc_attr( lccc_athletics_player_profile_get_meta ('lccc_athletics_player_profile_position_softball') );
-					
+
 					echo '<option value="' . $softballposition . '" id="' . $softballposition . '"', $selectedsoftball == $softballposition ? ' selected="selected"' : '', '>', $softballposition, '</option>';
 				}
 	?>
@@ -229,9 +229,9 @@ function toggleFields() {
 			<?php
 				$soccerpositions = array(' ','Goalie','Defender','Midfielder','Forward');
 				foreach ($soccerpositions as $soccerposition){
-					
+
 					$selectedsoccer = esc_attr( lccc_athletics_player_profile_get_meta ('lccc_athletics_player_profile_position_soccer') );
-					
+
 					echo '<option value="' . $soccerposition . '" id="' . $soccerposition . '"', $selectedsoccer == $soccerposition ? ' selected="selected"' : '', '>', $soccerposition, '</option>';
 				}
 	?>
@@ -243,9 +243,9 @@ function toggleFields() {
 			<?php
 				$volleyballpositions = array(' ','DS','MH','OH','RS','S');
 				foreach ($volleyballpositions as $volleyballposition){
-					
+
 					$selectedvolleyball = esc_attr( lccc_athletics_player_profile_get_meta ('lccc_athletics_player_profile_position_volleyball') );
-					
+
 					echo '<option value="' . $volleyballposition . '" id="' . $volleyballposition . '"', $selectedvolleyball == $volleyballposition ? ' selected="selected"' : '', '>', $volleyballposition, '</option>';
 				}
 	?>
@@ -255,7 +255,7 @@ function toggleFields() {
 <div>
 <?php
 	$selectedseconaryposition = trim( esc_attr( lccc_athletics_player_profile_get_meta ('lccc_athletics_player_profile_secondary_position') ) );
-	
+
 	if ($selectedseconaryposition != ''){
 		?>
 					Has Secondary Position?: <input type="checkbox" id="trigger" name="second_position_question" checked>
@@ -265,7 +265,7 @@ function toggleFields() {
 	}else{
 	?>
 				 <div id="secondary-postion-trigger"> Has Secondary Position?: <input type="checkbox" id="trigger" name="second_position_question"></div>
-<br>	
+<br>
 </div>
 <div id="hidden_fields" style="display:none;">
 	<?php
@@ -307,7 +307,7 @@ function toggleFields() {
 		<select name="lccc_athletics_player_profile_gender" id="lccc_athletics_player_profile_gender">
 			<?php
 				$genders = array(' ','Male','Female');
-				foreach ($genders as $gender){	
+				foreach ($genders as $gender){
 					echo '<option value="' . $gender . '" id="' . $gender . '"', $selectedgender == $gender ? ' selected="selected"' : '', '>', $gender, '</option>';
 				}
 	?>
@@ -335,50 +335,50 @@ function lccc_athletics_player_profile_save( $post_id ) {
 
 		if ( isset( $_POST['lccc_athletics_player_profile_jersey_number'] ) )
 		update_post_meta( $post_id, 'lccc_athletics_player_profile_jersey_number', esc_attr( $_POST['lccc_athletics_player_profile_jersey_number'] ) );
-		
+
 	if ( isset( $_POST['lccc_athletics_player_profile_height'] ) )
 		update_post_meta( $post_id, 'lccc_athletics_player_profile_height', esc_attr( $_POST['lccc_athletics_player_profile_height'] ) );
-	
+
 	if ( isset( $_POST['lccc_athletics_player_profile_sport'] ) )
 		update_post_meta( $post_id, 'lccc_athletics_player_profile_sport', esc_attr( $_POST['lccc_athletics_player_profile_sport'] ) );
-	
+
 	if ( isset( $_POST['lccc_athletics_player_profile_position_baseball'] ) )
-	{	
+	{
 		update_post_meta( $post_id, 'lccc_athletics_player_profile_position_baseball', esc_attr( $_POST['lccc_athletics_player_profile_position_baseball'] ) );
-	
+
 		}
-	
+
 	if ( isset( $_POST['lccc_athletics_player_profile_position_basketball'] ) )
 		update_post_meta( $post_id, 'lccc_athletics_player_profile_position_basketball', esc_attr( $_POST['lccc_athletics_player_profile_position_basketball'] ) );
-		
+
 	if ( isset( $_POST['lccc_athletics_player_profile_position_softball'] ) )
 		update_post_meta( $post_id, 'lccc_athletics_player_profile_position_softball', esc_attr( $_POST['lccc_athletics_player_profile_position_softball'] ) );
-	
+
 	if ( isset( $_POST['lccc_athletics_player_profile_position_soccer'] ) )
 		update_post_meta( $post_id, 'lccc_athletics_player_profile_position_soccer', esc_attr( $_POST['lccc_athletics_player_profile_position_soccer'] ) );
-		
+
 	if ( isset( $_POST['lccc_athletics_player_profile_position_volleyball'] ) )
 		update_post_meta( $post_id, 'lccc_athletics_player_profile_position_volleyball', esc_attr( $_POST['lccc_athletics_player_profile_position_volleyball'] ) );
-	
-	
+
+
 	if ( isset( $_POST['second_position_question'] ) ){
 		if ( isset( $_POST['lccc_athletics_player_profile_secondary_position'] ) )
 		update_post_meta( $post_id, 'lccc_athletics_player_profile_secondary_position', esc_attr( $_POST['lccc_athletics_player_profile_secondary_position'] ) );
 		} else {
 			update_post_meta( $post_id, 'lccc_athletics_player_profile_secondary_position', esc_attr('') );
 	}
-	
+
 	if ( isset( $_POST['co_ed_question'] ) ){
 		if ( isset( $_POST['lccc_athletics_player_profile_gender'] ) )
 				update_post_meta( $post_id, 'lccc_athletics_player_profile_gender', esc_attr( $_POST['lccc_athletics_player_profile_gender'] ) );
 		}else{
 				update_post_meta( $post_id, 'lccc_athletics_player_profile_gender', esc_attr('') );
 	}
-	
-	
+
+
 	if ( isset( $_POST['lccc_athletics_player_profile_year'] ) )
 		update_post_meta( $post_id, 'lccc_athletics_player_profile_year', esc_attr( $_POST['lccc_athletics_player_profile_year'] ) );
-	
+
 	if ( isset( $_POST['lccc_athletics_player_profile_high_school'] ) )
 		update_post_meta( $post_id, 'lccc_athletics_player_profile_high_school', esc_attr( $_POST['lccc_athletics_player_profile_high_school'] ) );
 	if ( isset( $_POST['lccc_athletics_player_profile_hometown'] ) )
