@@ -276,7 +276,7 @@ function toggleFields() {
 		<label for="lccc_athletics_player_profile_secondary_position"><?php _e( 'Secondary Position', 'lccc_athletics_player_profile' ); ?></label>
 				<select name="lccc_athletics_player_profile_secondary_position" id="lccc_athletics_player_profile_secondary_position">
 								<?php
-										$secondaryplayerpositions = array(' ','Baseball','-UTILITY','-INF','-OF','-P','-C','-1B','-2B','-3B','-SS','Basketball','-Guard','-Forward','-Center','Fastpitch Softball','-OF','-C','-P','-1B','-2B','-3B','-SS','Soccer','-Goalie','-Defender','-Midfielder','-Forward','Volleyball','-DS','-MH','-OH','-RS','-S');
+										$secondaryplayerpositions = array(' ','Baseball','-UTILITY','-INF','-OF','-P','-C','-1B','-2B','-3B','-SS','Basketball','-Guard','-Forward','-Center','Fastpitch Softball','-OF','-C','-P','-1B','-2B','-3B','-SS', 'IF', 'UTILITY','Soccer','-Goalie','-Defender','-Midfielder','-Forward','Volleyball','-DS','-MH','-OH','-RS','-S');
 										foreach ($secondaryplayerpositions as $secondposition){
 					echo '<option value="' . $secondposition . '" id="' . $secondposition . '"', $selectedseconaryposition == $secondposition ? ' selected="selected"' : '', '>', $secondposition, '</option>';
 				}
