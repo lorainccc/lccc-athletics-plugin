@@ -317,12 +317,22 @@ function toggleFields() {
 	<p>
 		<label for="lccc_athletics_player_profile_year"><?php _e( 'Year', 'lccc_athletics_player_profile' ); ?></label><br>
 		<input type="text" name="lccc_athletics_player_profile_year" id="lccc_athletics_player_profile_year" value="<?php echo lccc_athletics_player_profile_get_meta( 'lccc_athletics_player_profile_year' ); ?>">
-	</p>	<p>
+	</p>	
+	<p>
 		<label for="lccc_athletics_player_profile_high_school"><?php _e( 'High School', 'lccc_athletics_player_profile' ); ?></label><br>
 		<input type="text" name="lccc_athletics_player_profile_high_school" id="lccc_athletics_player_profile_high_school" value="<?php echo lccc_athletics_player_profile_get_meta( 'lccc_athletics_player_profile_high_school' ); ?>">
-	</p>	<p>
+	</p>	
+	<p>
 		<label for="lccc_athletics_player_profile_hometown"><?php _e( 'Hometown', 'lccc_athletics_player_profile' ); ?></label><br>
 		<input type="text" name="lccc_athletics_player_profile_hometown" id="lccc_athletics_player_profile_hometown" value="<?php echo lccc_athletics_player_profile_get_meta( 'lccc_athletics_player_profile_hometown' ); ?>">
+	</p>
+	<p>
+		<label for="lccc_athletics_player_profile_acadmajor"><?php _e( 'Academic Major', 'lccc_athletics_player_profile' ); ?></label><br>
+		<input type="text" name="lccc_athletics_player_profile_acadmajor" id="lccc_athletics_player_profile_acadmajor" value="<?php echo lccc_athletics_player_profile_get_meta( 'lccc_athletics_player_profile_acadmajor' ); ?>">
+	</p>
+	<p>
+		<label for="lccc_athletics_player_profile_parents"><?php _e( 'Parent Names', 'lccc_athletics_player_profile' ); ?></label><br>
+		<input type="text" name="lccc_athletics_player_profile_parents" id="lccc_athletics_player_profile_parents" value="<?php echo lccc_athletics_player_profile_get_meta( 'lccc_athletics_player_profile_parents' ); ?>">
 	</p>
 
 <?php
@@ -375,15 +385,33 @@ function lccc_athletics_player_profile_save( $post_id ) {
 				update_post_meta( $post_id, 'lccc_athletics_player_profile_gender', esc_attr('') );
 	}
 
-
+	// Year - Academic Designation (Freshman, Sophomore, Junior, Senior)
 	if ( isset( $_POST['lccc_athletics_player_profile_year'] ) )
 		update_post_meta( $post_id, 'lccc_athletics_player_profile_year', esc_attr( $_POST['lccc_athletics_player_profile_year'] ) );
 
+	// High School
+
 	if ( isset( $_POST['lccc_athletics_player_profile_high_school'] ) )
 		update_post_meta( $post_id, 'lccc_athletics_player_profile_high_school', esc_attr( $_POST['lccc_athletics_player_profile_high_school'] ) );
+	
+	// Hometown
+	
 	if ( isset( $_POST['lccc_athletics_player_profile_hometown'] ) )
 		update_post_meta( $post_id, 'lccc_athletics_player_profile_hometown', esc_attr( $_POST['lccc_athletics_player_profile_hometown'] ) );
-}
+
+	// Academic Major lccc_athletics_player_profile_acadmajor
+
+	if ( isset( $_POST['lccc_athletics_player_profile_acadmajor'] ) )
+	update_post_meta( $post_id, 'lccc_athletics_player_profile_acadmajor', esc_attr( $_POST['lccc_athletics_player_profile_acadmajor'] ) );
+
+
+	// Parents Names lccc_athletics_player_profile_parents
+
+	if ( isset( $_POST['lccc_athletics_player_profile_parents'] ) )
+	update_post_meta( $post_id, 'lccc_athletics_player_profile_parents', esc_attr( $_POST['lccc_athletics_player_profile_parents'] ) );
+
+
+	}
 add_action( 'save_post', 'lccc_athletics_player_profile_save' );
 
 /*
